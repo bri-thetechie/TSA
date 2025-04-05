@@ -66,6 +66,103 @@ This project provides two distinct Shiny applications catering to different leve
 8.  Click the "Run Analysis" button.
 9.  View the results in the corresponding tabs.
 
+## Quick Start Guide
+
+Follow these steps to get started with the Time Series Analysis Shiny Apps:
+
+**Prerequisites:**
+
+* Make sure you have **R** (version 4.0 or higher) and **RStudio** installed on your system.
+* Ensure you have installed all the necessary R packages. You can do this by running the following command in your R console:
+    ```R
+    install.packages(c("shiny", "shinythemes", "ggplot2", "forecast", "tseries", "readxl", "plotly", "lmtest", "nortest", "TTR", "tools", "uroot", "quantmod", "rugarch", "shinyWidgets"))
+    ```
+
+**Running the Applications:**
+
+**For the Automated Time Series Analysis Dashboard:**
+
+1.  Clone this repository to your local machine.
+2.  Open the `app1.R` file in RStudio.
+3.  Click the "Run App" button in the top right corner of the script editor (or use the command `shiny::runApp('app1.R')` in the R console).
+4.  A web browser window will open with the application.
+5.  In the "Data Input" section, click "Browse" to upload your time series data file (supported formats: `.csv` or `.xlsx`).
+6.  Select the column containing your time series data from the "Select Numeric Column" dropdown.
+7.  Enter the frequency of your time series data in the "Set Time Series Frequency" field (e.g., 12 for monthly data, 252 for daily stock market data).
+8.  Click the "Set Frequency" button.
+9.  Specify the "Forecast Horizon" if you wish to generate forecasts.
+10. Click the "Run Automated Analysis" button.
+11. Navigate through the different tabs to explore the results of the automated analysis, including plots, test outputs, and model summaries.
+
+**For the Advanced Time Series Analysis Dashboard:**
+
+1.  Clone this repository to your local machine.
+2.  Open the `app2.R` file in RStudio.
+3.  Click the "Run App" button (or use `shiny::runApp('app2.R')`).
+4.  A web browser window will open with the application.
+5.  In the "Data Input" section, upload your data file and select the numeric column and frequency as described above.
+6.  Click the "Set Frequency" button.
+7.  In the "Analysis Parameters" section, check the boxes next to the specific time series analyses you want to perform.
+8.  Adjust the parameters for each selected analysis (e.g., lags for ACF/PACF, orders for ARIMA/GARCH models).
+9.  If you want to generate a forecast, check the "Generate Forecast" box and set the horizon and the model to use.
+10. If you want to analyze residuals, check the "Run Residual Diagnostics" box.
+11. Click the "Run Analysis" button.
+12. View the results of each selected analysis in the corresponding tabs.
+
+**Exploring the Apps:**
+
+* Each tab in the main panel displays the results of a specific analysis (e.g., Time Series Plot, Stationarity Tests, Decomposition, etc.).
+* Hover over plots (especially those generated with `plotly`) for interactive tooltips.
+* Review the text outputs for the results of statistical tests and model summaries.
+
+We encourage you to explore the different options and parameters in both dashboards to gain a deeper understanding of your time series data.
+
+## Future Work / Roadmap
+
+We plan to continue enhancing these Time Series Analysis Shiny Apps with new features and improvements. Here are some of the areas we are considering for future development:
+
+**For Both Applications:**
+
+* **Enhanced Data Input:**
+    * Allow users to paste data directly into a text input area.
+    * Explore options for connecting to online data sources for real-time or historical data retrieval (e.g., financial APIs).
+* **Improved Visualization:**
+    * Provide more options for customizing plot appearance, such as titles, axis labels, colors, and themes.
+    * Implement functionality to download generated plots in various formats (PNG, JPEG, PDF).
+* **Session Management:**
+    * Enable users to save their current analysis session (data, parameters, results) and load it later.
+* **Basic Reporting:**
+    * Add the ability to generate a simple report summarizing the analysis performed.
+* **Interactive Plots:**
+    * Enhance plot interactivity with zoom, pan, and more detailed tooltips.
+* **Accessibility:**
+    * Work on improving the accessibility of the applications for users with disabilities.
+
+**For the Automated Time Series Analysis Dashboard:**
+
+* **Smarter Automatic Modeling:**
+    * Implement more robust automatic model selection by comparing multiple ARIMA models and potentially other model types (like ETS) based on information criteria.
+    * Explore automated detection of different seasonal patterns.
+    * Consider automatic outlier detection and handling.
+* **Explanations of Results:**
+    * Provide brief, user-friendly explanations of the statistical test outputs and what they mean in the context of time series analysis.
+
+**For the Advanced Time Series Analysis Dashboard:**
+
+* **More Model Choices:**
+    * Include additional time series models such as Exponential Smoothing (ETS), state-space models, and potentially dynamic regression.
+    * Offer more advanced options for GARCH model specification and distribution assumptions.
+* **Model Comparison:**
+    * Allow users to fit and compare multiple models based on various performance metrics.
+* **Customizable Diagnostics:**
+    * Give users more control over which residual diagnostic tests and plots are generated.
+* **Scenario Forecasting:**
+    * Enable users to perform scenario analysis for forecasting by adjusting model parameters.
+* **Backtesting:**
+    * Implement basic backtesting functionality to evaluate model performance on historical data.
+
+We welcome feedback and suggestions from the community as we continue to develop these tools.
+
 ## Installation
 
 To run these applications, you need to have R and the following R packages installed:
